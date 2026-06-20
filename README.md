@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+flowchart LR
+  ClientChat[Client Chat] --> AdvisorChat[Advisor Chat Box]
+  ClientUpdate[Client Immediate Update] --> UrgencyFeed[Advisor Urgency Feed]
+  ClientPoints[Client Development Points] --> AdvisorCPD[Advisor CPD Hours]
+  ClientMeeting[Client Books Meeting] --> AdvisorCalendar[Advisor Calendar + Reminders]
+  ChatTriggers[Chat trigger words] --> UrgencyFeed
+  PartnerDrop[Partner satisfaction drop] --> UrgencyFeed
+
