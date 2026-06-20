@@ -1,26 +1,190 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  /* Global dark theme. Every component reads these semantic tokens, so the
+     whole app stays high-contrast and cohesive from one source of truth. */
+  --background: #0a0c11; /* page background (≈ gray-950) */
+  --surface: #14181f; /* cards / elevated surfaces */
+  --foreground: #f8fafc; /* primary text — gray-50, max contrast */
+  --muted: #aeb6c4; /* secondary text — still ≥ 7:1 on the background */
+  --border: #272e3a; /* hairline borders, clearly visible on dark */
+  --primary: #f8fafc; /* primary buttons: stark white… */
+  --primary-foreground: #0a0c11; /* …with near-black text */
+  --accent: #5b8cff; /* bright blue accent for focus/links */
+  --radius: 14px;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --animate-fade-up: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-card-in: card-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Liquid grey background ---------- */
+.liquid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.liquid-bg::before,
+.liquid-bg::after {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.liquid-bg::before {
+  top: -15vmax;
+  left: -10vmax;
+  background: radial-gradient(circle at 30% 30%, #1c2b4a, #0a0c11 70%);
+  animation: liquid-drift-a 22s ease-in-out infinite;
+}
+
+.liquid-bg::after {
+  bottom: -20vmax;
+  right: -12vmax;
+  background: radial-gradient(circle at 70% 70%, #2a1d4d, #0a0c11 70%);
+  animation: liquid-drift-b 28s ease-in-out infinite;
+}
+
+.liquid-blob {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  width: 38vmax;
+  height: 38vmax;
+  border-radius: 50% 50% 55% 45% / 55% 45% 55% 45%;
+  background: radial-gradient(circle at 50% 50%, #16223f, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: liquid-drift-c 25s ease-in-out infinite;
+}
+
+@keyframes liquid-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(8vmax, 6vmax) scale(1.15) rotate(40deg); }
+}
+
+@keyframes liquid-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-7vmax, -5vmax) scale(1.1) rotate(-30deg); }
+}
+
+@keyframes liquid-drift-c {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-42%, -58%) scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-bg::before,
+  .liquid-bg::after,
+  .liquid-blob {
+    animation: none;
+  }
+}
+
+/* ---------- Reusable entrance animations ----------
+   Defined as literal classes (guaranteed to apply regardless of how Tailwind
+   tree-shakes utilities) AND registered as v4 theme animations below so
+   `animate-fade-up` / `animate-card-in` also work as first-class utilities. */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-in {
+  0% { opacity: 0; transform: translateY(18px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-card-in {
+  animation: card-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-card-in {
+    animation: none;
+  }
+}
+
+/* ---------- Button shine sweep ---------- */
+@keyframes btn-shine {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(220%); }
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.btn-shine:hover::after {
+  animation: btn-shine 0.9s ease;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.18);
+}
+
+/* ---------- Urgent glow pulse ---------- */
+@keyframes pulse-slow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.0); }
+  50% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-slow {
+    animation: none;
+  }
 }
