@@ -1,4 +1,184 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Team neXus
+1. Raiyaan - Leader
+2. Faizan - Member
+3. Lukman - Member
+
+
+
+#Project Description
+
+# NEXUS
+### The Future of Integrated Work Tools for the Advisory Industry
+
+NEXUS is an all-in-one advisory workflow platform designed to connect advisors and clients through a single intelligent portal.
+
+Instead of switching across multiple platforms for communication, onboarding, document collection, scheduling, and progress tracking, NEXUS centralizes the entire advisor–client relationship into one streamlined experience.
+
+---
+
+## Problem
+
+Modern advisory workflows suffer from:
+
+### Time Loss
+Advisors spend a significant portion of their time on manual coordination, administration, and follow-ups instead of client work.
+
+### Slow Client Onboarding
+Client onboarding often becomes delayed due to fragmented document collection and disconnected systems.
+
+### Poor User Experience
+Clients experience repeated follow-ups, lack of transparency, and unnecessary waiting periods before work even begins.
+
+---
+
+## Solution
+
+NEXUS provides:
+
+- Unified advisor-client workspace
+- Centralized communication
+- Faster onboarding experience
+- Workflow tracking
+- Secure document handling
+- Professional engagement management
+
+A single intelligent dashboard replacing multiple disconnected tools.
+
+---
+
+# Core Features
+
+## For Advisors
+
+- Manage daily operations in one platform
+- Reduce repetitive administrative work
+- Simplified and modern UI/UX
+- Track engagement and performance
+- Build professional credibility through client feedback
+
+## For Clients
+
+- Discover available advisors
+- View advisor profiles
+- Book and connect directly
+- Track engagement progress in real time
+- Eliminate unnecessary email chains
+
+---
+
+# Security
+
+NEXUS follows a secure-by-design architecture.
+
+### JWT Authentication
+Users receive cryptographically signed tokens after login.
+
+Features:
+- Secure session handling
+- Token validation on every request
+- Controlled access flow
+
+### Role-Based Access Control (RBAC)
+
+Access policies ensure:
+
+- Advisors access only their own records
+- Clients access only their own records
+- Protected database operations
+
+### Zero-Trust Architecture
+
+Security is enforced directly at the data layer to prevent unauthorized cross-tenant access.
+
+---
+
+# Scalability
+
+NEXUS is built with an MVP-first architecture:
+
+- Modular frontend structure
+- Scalable domain model
+- Expandable infrastructure
+- Enterprise-ready growth path
+
+---
+
+# Product Roadmap
+
+## Q1 — Launch
+Deploy core integration engine.
+
+## Q2 — AI Modules
+Introduce:
+- Predictive analytics
+- Automated workflow builders
+
+## Q3 — Scale & Secure
+- SOC2 compliance
+- Global server expansion
+
+## Q4 — Public API
+Enable:
+- Third-party integrations
+- Marketplace ecosystem
+
+---
+
+# Revenue Model
+
+Recurring SaaS revenue powered by:
+
+- Enterprise subscriptions
+- Long-term contracts
+- API consumption
+
+---
+
+# Market Opportunity
+
+Malaysia advisory market:
+**~$2.07B**
+
+Global target market:
+**$300B+**
+
+NEXUS addresses a large operational inefficiency by reducing manual workflow overhead across advisory services.
+
+---
+
+# Tech Stack (Suggested)
+
+Frontend:
+- React / Next.js
+
+Backend:
+- Node.js
+
+Authentication:
+- JWT
+
+Database:
+- PostgreSQL
+
+Authorization:
+- Row Level Security (RLS)
+
+Deployment:
+- Vercel / Cloud Infrastructure
+
+---
+
+# Future Vision
+
+Build a connected ecosystem where advisors and clients collaborate efficiently, securely, and without friction.
+
+---
+
+## Team
+
+Built with the vision of transforming advisory operations into a seamless digital experience.
+
+**Join the Nexus — Let’s build the future together.**This is a [Next.js] project bootstrapped with [`create-next-app`]
 
 ## Getting Started
 
@@ -16,22 +196,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 flowchart LR
