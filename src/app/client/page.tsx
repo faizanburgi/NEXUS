@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { CpdRing } from "@/components/ui/CpdRing";
 import { useStore } from "@/lib/useStore";
+import { AiAssistant } from "@/components/ui/AiAssistant";
 import { DEMO_CLIENT_ID } from "@/services/NexusStore";
 
 type StepState = "completed" | "active" | "pending";
@@ -253,6 +254,8 @@ export default function ClientEngagementPage() {
           ) : null}
         </CardBody>
       </Card>
+
+      <AiAssistant />
     </>
   );
 }

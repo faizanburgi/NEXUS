@@ -10,6 +10,7 @@ import { UrgencyFeed, sourceIcon } from "@/components/ui/UrgencyFeed";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { useStore } from "@/lib/useStore";
+import { AiAssistant } from "@/components/ui/AiAssistant";
 
 export default function AdvisorDashboard() {
   const store = useStore();
@@ -135,6 +136,8 @@ export default function AdvisorDashboard() {
           </Card>
         </div>
       </div>
+
+      <AiAssistant />
     </>
   );
 }
