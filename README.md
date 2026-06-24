@@ -1,10 +1,3 @@
-# Team neXus
-1. Raiyaan - Leader
-2. Faizan - Member
-3. Lukman - Member
-
-
-
 #Project Description
 
 # NEXUS
